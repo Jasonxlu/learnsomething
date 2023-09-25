@@ -5,10 +5,10 @@
 #ifndef LEARNSOMETHING_PRICINGUTIL_H
 #define LEARNSOMETHING_PRICINGUTIL_H
 
-
-class PricingUtil {
-
+class PricingUtil
+{
+public:
+    float formula(float previousPrice, float interestRate, float oleoConstant);
 };
 
-
-#endif //LEARNSOMETHING_PRICINGUTIL_H
+#endif // LEARNSOMETHING_PRICINGUTIL_H

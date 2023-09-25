@@ -7,21 +7,21 @@ under a QR, who immediately sets you to work on building a pricing utility using
 Python. The Python script and pricing formula will be provided to help you with development.
 
 Pricing formula is as follows:
-Theoretical Value = (Previous Price * (0.9 + Interest Rate)) * Oleo Constant.You should take all 3 variables as input
+Theoretical Value = (Previous Price _ (0.9 + Interest Rate)) _ Oleo Constant.You should take all 3 variables as input
 floats into your function.
 
 ## Instructions
 
-- [ ] Read the given code, and attempt to understand it.
-- [ ] You will need to write your own `CMakeLists.txt`, though a `Taskfile.yml` has been provided so you can use the
-  same commands that you did in Step 0. Research and create this.
-- [ ] Implement the pricing file - `PricingUtil.cpp` and `PricingUtil.h`.
-- [ ] Modify your `CMakeLists.txt` to emit a Pybind module.
-- [ ] Ensure the provided Python file can import your module without any issues.
+- [x] Read the given code, and attempt to understand it.
+- [x] You will need to write your own `CMakeLists.txt`, though a `Taskfile.yml` has been provided so you can use the
+      same commands that you did in Step 0. Research and create this.
+- [x] Implement the pricing file - `PricingUtil.cpp` and `PricingUtil.h`.
+- [x] Modify your `CMakeLists.txt` to emit a Pybind module.
+- [x] Ensure the provided Python file can import your module without any issues.
 
 ## Questions
 
-Please include the following when you are writing your PR:   
+Please include the following when you are writing your PR:  
 General things:
 
 1. What is the purpose of this PR?
