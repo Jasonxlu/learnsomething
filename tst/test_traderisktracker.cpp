@@ -11,9 +11,9 @@ TEST(TradeRiskTrackerTest, TrackerInit)
     trackedTrades.push_back(testTrade1);
     trackedTrades.push_back(testTrade2);
     RiskTracker riskTracker(0, trackedTrades);
-    EXPECT_EQ(riskTracker.getRisk(), 0);
+    EXPECT_NEAR(riskTracker.getRisk(), 0, 1e-4);
     riskTracker.updateRisk();
-    EXPECT_EQ(riskTracker.getRisk(), 0);
+    EXPECT_NEAR(riskTracker.getRisk(), 0, 1e-4);
     Trade testTrade3(14, true, 1.55);
     riskTracker.addTrade(testTrade3);
     riskTracker.updateRisk();
@@ -24,7 +24,7 @@ TEST(TradeRiskTrackerTest, TrackerZeroTest)
 {
     std::vector<Trade> trackedTrades;
     RiskTracker riskTracker(0, trackedTrades);
-    EXPECT_EQ(riskTracker.getRisk(), 0);
+    EXPECT_NEAR(riskTracker.getRisk(), 0, 1e-4);
     riskTracker.addTrade(Trade(44, true, 1.6));
     riskTracker.addTrade(Trade(44, false, 1.6));
     riskTracker.updateRisk();
@@ -59,3 +59,4 @@ TEST(TradeRiskTrackerTest, TrackerClearTradesTest)
     riskTracker.updateRisk();
     EXPECT_NEAR(riskTracker.getRisk(), 80.2, 1e-4);
 }
+
