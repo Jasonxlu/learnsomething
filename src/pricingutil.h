@@ -8,6 +8,7 @@
 class PricingUtil
 {
 public:
+    PricingUtil();
     float formula(float previousPrice, float interestRate, float oleoConstant);
 };
 

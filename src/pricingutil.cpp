@@ -8,3 +8,5 @@ float PricingUtil::formula(float previousPrice, float interestRate, float oleoCo
 {
     return previousPrice * (0.9 + interestRate) * oleoConstant;
 }
+
+PricingUtil::PricingUtil() {}

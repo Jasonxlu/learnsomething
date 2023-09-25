@@ -14,14 +14,13 @@ endif ()
 
 # Add Pybind11
 include(FetchContent)
-set(PYBIND11_VERSION 2.8.1)
+set(PYBIND11_VERSION 2.11.1)
 FetchContent_Declare(
         pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11.git
         GIT_TAG v${PYBIND11_VERSION}
 )
 FetchContent_MakeAvailable(pybind11)
-
 
 include(FetchContent)
 FetchContent_Declare(
@@ -32,18 +31,20 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE) #windows tings
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-add_executable(
-        PriceUtilTests
-        ${CMAKE_SOURCE_DIR}/src/pricingutil.cpp
-        ${CMAKE_SOURCE_DIR}/tst/test_pricingutil.cpp
-)
+pybind11_add_module(PricingUtil MODULE src/main.cpp src/pricingutil.cpp)
 
-target_link_libraries(
-        PriceUtilTests
-        GTest::gtest_main
-)
+add_executable(
+  PricingUtilTests
+  ${CMAKE_SOURCE_DIR}/src/pricingutil.cpp
+  ${CMAKE_SOURCE_DIR}/tst/test_pricingutil.cpp
+  )
 
 target_include_directories(
-  PriceUtilTests PRIVATE
+  PricingUtilTests PRIVATE
   ${CMAKE_SOURCE_DIR}/src
   )
+
+target_link_libraries(
+  PricingUtilTests
+  GTest::gtest_main
+)
